@@ -29,7 +29,7 @@ var ERROR_SALA_REP = "505";
 /**
  * Server
  */
-var MAIN_SERVER_ADDRESS = '192.168.3.18';
+var MAIN_SERVER_ADDRESS = '213.37.1.75';
 var MAIN_SERVER_UDP_PORT = 5000;
 
 /**

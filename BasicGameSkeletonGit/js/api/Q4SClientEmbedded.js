@@ -92,7 +92,7 @@ var notifications = [];
 
 function startQ4S() {
 
-	SERVER_ADDRESS = "192.168.3.18";
+	SERVER_ADDRESS = "213.37.1.75";
 	SERVER_TCP_PORT = 8001;
 	SERVER_UDP_PORT = 62516;
 
