@@ -1,16 +1,4 @@
-/**
- * Mark pulse of the game
- */
-window.requestAnimFrame = (function() {
-	return window.requestAnimationFrame 
-			|| window.webkitRequestAnimationFrame
-			|| window.mozRequestAnimationFrame 
-			|| window.oRequestAnimationFrame
-			|| window.msRequestAnimationFrame
-			|| function( callback, element) {
-					window.setTimeout(callback, 1000 / 60);
-			};
-})();
+//TODO Mark pulse of the game
 
 /**
  * Game control
@@ -44,16 +32,7 @@ var game = (function() {
 
 		//TODO animate	
 		
-		//Clean textBox
-		try {
-			$('#idRomm').html(pRoom);
-		} catch (e) {}
-		try {
-			$('#idPlayer').html(pUser);			
-		} catch (e) {}
-		try {
-			$('#idLatencia').html(limitLatency);			
-		} catch (e) {}
+		//TODO Clean textBox, idRomm, idPlayer, idLatencia
 		
 		//Players begin
 		iniciarJugadores(pUser);
@@ -63,59 +42,19 @@ var game = (function() {
 	 * Players begin as the pUser (player number assigned)
 	 */
 	function iniciarJugadores(pUser) {
-		userId = parseInt(pUser);
-		if(pUser == 1){		
-			//Put master			
-			MASTER = true;
-			connected = true;
-			
-			//TODO take messages if necessary, initiate local player with 1
-			localPlayer = new LocalPlayer(1);
-		} else {
-			//Put other player		
-			MASTER = false;
-			connected = true;			
-			
-			//TODO take messages if necessary, local player start with pUser and put the other players					
-			
-			//Messages to the API		
-			if (pUser == maxSess) {															//The last
-				priorWriteAction(MEN_TYPE_BEGIN + SEP + userId + SEP + MEN_ULTIMO);			//START GAME ALL JOINED
-			}  else {
-				priorWriteAction(MEN_TYPE_BEGIN + SEP + userId + SEP + MEN_CONECTADO);		//I log and I say to others			
-			}			
-			
-			//TODO take messages if necessary
-		}
+		//TODO Players create and control these messages as we reach the API
+					
+		//TODO Messages to the API	
+		var men = "";
+		priorWriteAction(men);
 	}
 	
 	/**
 	 * Method responsible for managing incoming messages from the server, this method will be called from the api.
 	 */
 	function readResponse(data) {
-		//Vapture message
-		var messageData = data.split(SEP);
-		
-		if (messageData[0] == MEN_TYPE_BEGIN) {			//Message type BEGIN
-			var idCon = parseInt(messageData[1]);		//User online
-			var men = messageData[2];					//Message to begin
-									
-			if(men == MEN_CONECTADO){					//If Online
-				//TODO a user has connected											
-			} else if(men == MEN_ULTIMO){				//If last
-				//TODO the last user has logged							
-			}								
-		} else if (messageData[0] == MEN_TYPE_TECLAS) {	//Message type TECLAS
-			//TODO a user has moved
-			var userIdAux = parseInt(messageData[1]);
-			var keyCodeAux = parseInt(messageData[2]);
-			var posXAux = parseInt(messageData[3]);
-			var posYAux = parseInt(messageData[4]);
-			var direction = parseInt(messageData[5]);	
-			var playerAux = new Object();			
-		} else if (messageData[0] == MEN_TYPE_JUGAR) {	//Message type JUGAR
-			//TODO the game starts all connected
-		}
+		//TODO Capture messages
+		var messageData = data.split(SEP);		
 	}
 	
 	/**
@@ -129,7 +68,13 @@ var game = (function() {
 	 * Managing keys
 	 */
 	function keyDown(e) {
-		//TODO capture key				
+		//TODO capture key			
+		
+		var menAux = "";
+		
+		if(writeAction(menAux)==0){
+			//Move	
+		}			
 	}
 	
 	/**
