@@ -414,13 +414,11 @@ function writeComplete(writeInfo) {
  * Read Q4S latency and establish if greater than limitLatency
  */
 function readLatency(pLat){	
-	function readLatency(pLat){	
-		if(pLat!=undefined && pLat!=""){		
-			if(pLat<60){
-				currentLatency = 60;
-			} else {
-				currentLatency = pLat;
-			}		
+	if(pLat!=undefined && pLat!=""){		
+		if(pLat<60){
+			currentLatency = 60;
+		} else {
+			currentLatency = pLat;
 		}		
 	}		
 }
