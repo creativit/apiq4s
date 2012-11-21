@@ -415,13 +415,10 @@ function writeComplete(writeInfo) {
  */
 function readLatency(pLat){	
 	if(pLat!=undefined && pLat!=""){		
-		if(pLat<20){
-			currentLatency = pLat*20;
+		if(pLat<30){
+			currentLatency = 30;
 		} else {
-			currentLatency = pLat*2;
-			//limitLatency = pLat;	
-			
-			//console.log("latencia readLatency: " + currentLatency);
+			currentLatency = pLat;
 		}		
 	}		
 }
