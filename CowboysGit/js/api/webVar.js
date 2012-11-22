@@ -1,7 +1,7 @@
 /**
  * Latency maximum current users in the same room. Milisencods
  */
-var limitLatency = 500;
+var limitLatency = 200;
 var limitLatencyToGame = 10;
 var limitLatencyToInicio = 1000;
 var limitLatencyToEnd = 5000;
@@ -9,7 +9,7 @@ var limitLatencyToEnd = 5000;
 /**
  * Latency current customer based on the information provided by the library Q4S. Milisencods
  */
-var currentLatency = 500;
+var currentLatency = 200;
 
 /**
  * PROTOCOL VARS

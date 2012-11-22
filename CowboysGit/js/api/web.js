@@ -43,8 +43,8 @@ function mainSocketStart() {
 	socketUdp.create('udp', {}, createComplete);
 	//console.log("Create Socket");
 	
-	//TODO Arrancamos el Q4SClientEmbedded.js
-	startQ4S();
+//	//TODO Arrancamos el Q4SClientEmbedded.js
+//	startQ4S();
 }
 
 /**
@@ -88,6 +88,9 @@ function gameSocketStart() {
 	} catch (e) {}
 	gameSocketUdp.create('udp', {}, createSocketGameComplete);
 	//console.log("Create Game Socket");	
+	
+	//TODO Arrancamos el Q4SClientEmbedded.js
+	startQ4S();
 }
 
 /**
@@ -488,9 +491,9 @@ function endSalaWeb() {
 	controlEntrarSala = false;
 	controlEndSala = false;	
 
-	currentLatency = 2000;
-	limitLatency = 2000;
-	limitLatencyToGame = 20;
+	currentLatency = 200;
+	limitLatency = 200;
+	limitLatencyToGame = 10;
 	limitLatencyToInicio = 1000;
 	limitLatencyToEnd = 5000;
 	playerReference = 0;
@@ -601,6 +604,13 @@ $(document).ready(function() {
 	$('#exitSala').live({
 		click : function(event) {							
 			endSalaApi();		
+		}
+	});
+	
+	$('#exitApp').live({
+		click : function(event) {							
+			window.open('','_parent','');
+			window.close();
 		}
 	});
 	
